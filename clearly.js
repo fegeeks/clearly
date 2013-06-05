@@ -10,6 +10,7 @@ function clearly(url, filename, callback) {
     var page = require('webpage').create();
 
     page.settings.userAgent = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.52 Safari/536.5';
+    page.viewportSize = { width:1440, height:900 };
 
     page.onConsoleMessage = function (msg) {
         console.log(msg);
@@ -31,7 +32,7 @@ function clearly(url, filename, callback) {
             return true;
         }
 
-        page.includeJs("http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js", function () {
+        page.includeJs("http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js", function () {
             html = page.evaluate(function () {
                 window.readable = {};
                 window.readable.window = window;
